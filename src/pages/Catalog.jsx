@@ -36,7 +36,6 @@ allCategory?.filter(
         try {
           if(categoryId){
             const res = await getCatalogPageData(categoryId)
-            console.log(res)
             setCatalogPageData(res)
           }
         } catch (error) {
