@@ -1,4 +1,4 @@
-# 📚 StudyNotion – EdTech Platform
+# 📚 Study – EdTech Platform
 
 StudyNotion is a fully functional Ed-Tech platform built using the MERN stack.  
 It allows users to create, explore, and consume educational content with a seamless experience for both students and instructors.
