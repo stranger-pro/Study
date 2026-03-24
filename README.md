@@ -1,12 +1,93 @@
-# React + Vite
+# 📚 Study – EdTech Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+StudyNotion is a fully functional Ed-Tech platform built using the MERN stack.  
+It allows users to create, explore, and consume educational content with a seamless experience for both students and instructors.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### 👨‍🎓 Student Features
+- Browse and search courses
+- View course details
+- Add courses to cart
+- Secure checkout and purchase
+- Watch video lectures
+- Rate and review courses
+- Manage user profile
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 👨‍🏫 Instructor Features
+- Create and upload courses
+- Add sections and lectures
+- Upload videos and thumbnails
+- Edit and delete courses
+- View dashboard and earnings
+
+### 🔐 Authentication & Authorization
+- JWT-based authentication
+- Role-based access (Student / Instructor)
+- Secure password hashing
+
+### ☁️ Media Management
+- Cloudinary for image and video uploads
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Tailwind CSS
+- Redux Toolkit
+- React Router
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- MongoDB (Mongoose)
+
+### Tools & Services
+- Cloudinary
+- JWT Authentication
+
+---
+
+
+## 📂 Folder Structure
+
+StudyNotion/
+│
+|----     # React Frontend
+│   ├── src/
+│   ├── components/
+│   └── pages/
+│
+├── backend/         # Node.js Backend
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── middleware/
+│
+└── README.md
+
+
+---
+
+## 🌐 Live Demo
+
+https://your-deployed-link.com
+
+---
+
+
+## 📌 Future Enhancements
+
+- Admin dashboard
+- AI-based course recommendation
+- Live classes
+- Certificate generation
+- Discussion forums
+
+---
