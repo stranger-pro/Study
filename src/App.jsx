@@ -1,6 +1,8 @@
 import './App.css'
 import Home from './pages/Home'
-import {Routes,Route} from 'react-router-dom'
+import {Routes,Route,useNavigate} from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from 'react'
 import SignUp from './pages/SignUp';
 import LogIn from './pages/Login';
 import Navbar from './components/common/Navbar';
@@ -21,48 +23,66 @@ import Catalog from './pages/Catalog';
 import CourseDetails from './pages/CourseDetails';
 import VideoDetails from './components/core/ViewCourse/VideoDetails';
 import ViewCourse from './pages/ViewCourse';
-import InstructorChart from './components/core/Dashboard/InstructorDashboard/InstructorChart';
 import Instructor from './components/core/Dashboard/Instructor';
-
+import { getUserDetails } from "./services/operations/profileAPI"
+import OpenRoute from './components/core/auth/OpenRoute'
+import PrivateRoute from './components/core/auth/PrivateRoute'
+import Error from './pages/Error'
+import { ACCOUNT_TYPE } from "./utils/constant"
 
  function App() {
+  const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { user } = useSelector((state) => state.profile)
+    const { token } = useSelector((state) => state.auth)
+  
   return (
     <div className='w-screen min-h-screen  flex flex-col font-inter'>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="courses/:courseId" element={<CourseDetails />} />
-        <Route path="/catalog/:catalogName" element={<Catalog/>} />
-        <Route path="/forgetPassword" element={<ForgotPassword/>} />
-        <Route path="/update-password/:token" element={<UpdatePassword/>}/>
-        <Route path="/signUp" element={<SignUp/>} />
-        <Route path="/logIn" element={<LogIn/>} />
-        <Route path='/verifyEmail' element={<VerifyEmail/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/contact' element={<Contact/>} />
+        <Route path="/catalog/:catalogName" element={<Catalog/>} />
+        
+        <Route path="/forgetPassword" element={<OpenRoute><ForgotPassword/></OpenRoute>} />
+        <Route path="/update-password/:token" element={<OpenRoute><UpdatePassword/></OpenRoute>}/>
+        <Route path="/signUp" element={<OpenRoute><SignUp/></OpenRoute>} />
+        <Route path="/logIn" element={<OpenRoute><LogIn/></OpenRoute>} />
+        <Route path='/verifyEmail' element={<OpenRoute><VerifyEmail/></OpenRoute>} />
 
-        <Route element={<Dashboard/>} >
+        <Route element={<PrivateRoute><Dashboard/></PrivateRoute>} >
           <Route path='/dashboard/myprofile' element={<MyProfile/>} />
           <Route path='/dashboard/settings' element={<Setting/>} />
-          <Route path='/dashboard/my-courses' element={<MyCourses/>} />
           
-          <Route path='/dashboard/add-course' element={<CourseAdd/>} />
-          <Route path='/dashboard/enrolled-courses' element={<EnrolledCourses/>} />
-          <Route path='/dashboard/cart' element={<Cart/>} />
-          <Route path="dashboard/edit-course/:courseId" element={<EditCourse />}/>
-          <Route path="dashboard/instructor" element={<Instructor/>}/>
+           {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route path='/dashboard/enrolled-courses' element={<EnrolledCourses/>} />
+              <Route path='/dashboard/cart' element={<Cart/>} />
+            </>
+           )}
+
+          {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+            <>
+            <Route path='/dashboard/my-courses' element={<MyCourses/>} />
+            <Route path='/dashboard/add-course' element={<CourseAdd/>} />
+            <Route path="dashboard/edit-course/:courseId" element={<EditCourse />}/>
+            <Route path="dashboard/instructor" element={<Instructor/>}/>
+            </>
+          )}
+          
         </Route>
 
-        <Route element={ <ViewCourse /> }>
+        <Route path="courses/:courseId" element={<PrivateRoute><CourseDetails /></PrivateRoute>} />
+        <Route element={ <PrivateRoute><ViewCourse /></PrivateRoute>}>
               <Route path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
                 element={<VideoDetails />} /> 
         </Route>
+
+        <Route path="*" element={<Error/>} />
       </Routes>
     </div>
   )
 }
 
-
-// myCourse instructer coursetable
-// cart payment loading 
 export default App;
