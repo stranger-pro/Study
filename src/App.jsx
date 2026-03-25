@@ -7,7 +7,7 @@ import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Navbar from './components/common/Navbar';
 import ForgotPassword from './pages/ForgotPassword';
-import UpdatePassword from './pages/updatePassword';
+import UpdatePassword from './pages/UpdatePassword';
 import VerifyEmail from './pages/VerifyEmail';
 import About from './pages/About';
 import Contact from './pages/Contact';
