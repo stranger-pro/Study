@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom"
 
 import Model from "../components/common/Model"
 import Footer from "../components/common/Footer"
-import RatingStars from "../components/Common/RatingStars"
+import RatingStars from "../components/common/RatingStars"
  import CourseAccordionBar from "../components/core/Course/CourseAccordionBar" 
 import CourseDetailsCard from "../components/core/Course/CourseDetailsCard"
 import { formatDate } from "../services/formatDate"
