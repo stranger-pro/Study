@@ -10,7 +10,7 @@ import Logo1 from '../assets/TimeLineLogo/Logo1.svg'
 import Logo2 from '../assets/TimeLineLogo/Logo2.svg'
 import Logo3 from '../assets/TimeLineLogo/Logo3.svg'
 import Logo4 from '../assets/TimeLineLogo/Logo4.svg'
-import Timelineimg from '../assets/Images/TimeLineImage.png'
+import Timelineimg from '../assets/Images/TimelineImage.png'
 import LearningLanguageHome from "../components/core/home/LearningLanguageHome";
 import BecomeInstructorHome from "../components/core/home/BecomeInstructorHome";
 import CardHomeContainer from "../components/core/home/CardHomeContainer";
