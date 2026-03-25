@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { formattedDate } from "../../src/utils/dateFormatter"
-import IconBtn from "../components/Common/IconBtn"
+import IconBtn from "../components/common/IconBtn"
 
 export default function MyProfile() {
   const { user } = useSelector((state) => state.profile)

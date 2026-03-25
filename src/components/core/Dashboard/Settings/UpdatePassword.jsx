@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { changePassword } from "../../../../services/operations/SettingsAPI"
-import IconBtn from "../../../Common/IconBtn"
+import IconBtn from "../../../common/IconBtn"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
 
