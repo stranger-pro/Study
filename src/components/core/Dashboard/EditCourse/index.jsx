@@ -7,7 +7,7 @@ import {
   getFullDetailsOfCourse,
 } from "../../../../services/operations/courseDetailsAPI"
 import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
-import RenderSteps from "../AddCourse/RenderSteps"
+import RenderSteps from "../AddCourse/Rendersteps"
 
 export default function EditCourse() {
   const dispatch = useDispatch()
