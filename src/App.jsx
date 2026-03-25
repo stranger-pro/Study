@@ -4,7 +4,7 @@ import {Routes,Route,useNavigate} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from 'react'
 import SignUp from './pages/SignUp';
-import LogIn from './pages/Login';
+import LogIn from './pages/LogIn';
 import Navbar from './components/common/Navbar';
 import ForgotPassword from './pages/ForgotPassword';
 import UpdatePassword from './pages/updatePassword';
@@ -24,7 +24,6 @@ import CourseDetails from './pages/CourseDetails';
 import VideoDetails from './components/core/ViewCourse/VideoDetails';
 import ViewCourse from './pages/ViewCourse';
 import Instructor from './components/core/Dashboard/Instructor';
-import { getUserDetails } from "./services/operations/profileAPI"
 import OpenRoute from './components/core/auth/OpenRoute'
 import PrivateRoute from './components/core/auth/PrivateRoute'
 import Error from './pages/Error'
