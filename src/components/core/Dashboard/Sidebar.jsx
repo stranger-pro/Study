@@ -21,8 +21,8 @@ const Sidebar = () => {
 
   return (
     <div>
-        <div className='flex min-w-50 flex-col border-r-2  bg-richblack-800 text-richblack-200
-         border-r-richblack-700 h-[calc(100vh-3.5rem)] py-10'>
+        <div className='flex min-w-15  xd:min-w-39 xm:min-w-53 flex-col border-r-2  bg-richblack-800 text-richblack-200
+         border-r-richblack-700 h-[calc(100vh-3.5rem)] py-4 xd:py-7 xm:py-10'>
 
             <div className='flex w-full items-center flex-col'>
                 {
@@ -47,15 +47,15 @@ const Sidebar = () => {
                     }}
                 />
 
-                <button className="flex gap-4 cursor-pointer items-center mx-auto justify-between text-richblack-200 w-[90%] p-2"
+                <button className="flex gap-3 cursor-pointer items-center mx-auto justify-between text-richblack-200 xd:w-[95%]   xm:w-[90%] py-2 xm:px-2"
                  onClick={() => setConformationModel({
                     text1 :"Are You Sure",
                     text2:"you will be logged out of your account",
                     buttonHandler1:()=>dispatch(logout(navigate)),
                     buttonHandler2:()=>setConformationModel(null),
                 })}>
-                    <VscSignOut className="text-xl w-[20%]" />
-                    <span className="cursor-pointer font-semibold flex w-[90%]">{`Logout`}</span>
+                    <VscSignOut className="text-xl w-full block xd:hidden xm:block xm:w-[20%]" />
+                    <span className="cursor-pointer hidden  xd:pl-3 xm:pl-0 font-semibold xd:flex xd:fit xm:w-[90%]">{`Logout`}</span>
                 </button>
 
                 {conformationModel && <Model data={conformationModel}/>}

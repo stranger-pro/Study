@@ -12,7 +12,7 @@ const courseRoutes = require("./routes/Course");
 const profileRoutes = require("./routes/Profile");
 
 const cookieParser = require("cookie-parser");
-const cors = require("cors");
+const cors = require('cors');
 const fileUpload = require("express-fileupload");
 require("dotenv").config();
 
@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "*",
+    origin: "study-flax-kappa.vercel.app",
     credentials:true,
   }),
 );

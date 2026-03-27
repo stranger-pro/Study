@@ -9,12 +9,12 @@ const ProfileDropdown = () => {
   const user = useSelector((state) => state.profile.user);
   
   return (
-    <div className="group relative">
-      <div className="cursor-pointer flex gap-2 items-center justify-center text-white">
+    <div className="group relative " onClick={() => navigate("/dashboard/myprofile")}>
+      <div className="cursor-pointer  flex gap-2 items-center justify-center text-white">
         {
-          user?.image ? <img className="w-8 h-8 border-2 border-white rounded-full" src={user.image} /> : <p >hero</p>
+          user?.image ? <img className="md:w-7 md:h-7 lg:w-8 w-5 h-5 xs:w-6 xs:h-6 lg:h-8 border-2 border-white rounded-full" src={user.image} /> : <p >hero</p>
         }
-        <FaChevronDown className="w-[0.7rem]" />
+        <FaChevronDown className="w-[0.45rem] lg:w-[0.7rem] md:w-[0.6rem] " />
       </div>
 
       <div className="bg-richblack-700 opacity-0 top-10  rounded-md py-2 px-9 -right-15 invisible absolute  flex flex-col gap-2 text-richblack-200

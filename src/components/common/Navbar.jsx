@@ -11,6 +11,7 @@ import { categories} from "../../services/apis";
 import { FaChevronDown } from "react-icons/fa";
 
 const Navbar = () => {
+  const [show , setShow] = useState(false);
   const [category, setCategory] = useState([]);
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
@@ -19,6 +20,7 @@ const Navbar = () => {
   const matchname = (path) => {
     return matchPath({ path: path }, location.pathname);
   };
+
 
   const fetchCategory = async () => {
     try {
@@ -35,31 +37,34 @@ const Navbar = () => {
 
   return (
     <div className=" w-full h-14 flex justify-center items-center border-2 bg-richblack-900 border-b-richblack-700">
-      <div className="w-[80%] flex items-center justify-between">
+      <div className="w-[90%] xs:w-[80%] flex items-center justify-between">
         {/* right */}
         <Link to={"/"}>
-          <img className="h-8" src={img} loading="lazy" />
+          <img className="h-4.5 xs:pr-3 xd:pr-0 pr-6 xs:h-5.5 md:h-6 lg:h-8 " src={img} loading="lazy" />
         </Link>
 
         {/* Middle */}
-        <div className="flex gap-4 font-bold">
+        <ul className="flex gap-4  font-bold">
           {NavbarLinks.map((link, index) => (
-            <li key={index}>
+            <li className="" key={index}>
               {link.title === "Catalog" ? (
                 <>
-                  <div className="relative group cursor-pointer text-richblack-200 flex items-center justify-center gap-1 group ">
-                    <p>{link.title}</p> <FaChevronDown className="w-[0.7rem]" />
+                  <div onClick={() => setShow(!show)} className=" relative group cursor-pointer text-richblack-200 flex items-center justify-center gap-1 group ">
+                    <p className="lg:text-[1rem] xs:text-[0.8rem]  text-[0.7rem] md:text-[0.9rem]">{link.title}</p> <FaChevronDown className="w-2 xs:w-[0.7rem]" />
                     
                     
-                    <div className="absolute z-10 top-8  text-richblack-900  w-50 invisible
-                     bg-white rounded-md   opacity-0 transition-all duration-50 
-                     p-4 group-hover:visible group-hover:opacity-100">
-                      <div className="absolute -top-1.5 right-14 z-0 h-6 w-6  text-richblack-900 rotate-45 invisible
-                       bg-white   opacity-0 transition-all duration-50 
-                        group-hover:visible group-hover:opacity-100">
+                    <div className={`absolute z-10 top-8  text-richblack-900 w-40 xs:w-50 
+                     bg-white rounded-md    transition-all duration-50 
+                     p-4 group-hover:visible group-hover:opacity-100
+                     ${show ? "visible opacity-100" : "invisible opacity-0"}
+                     `}>
+                      <div className={`absolute -top-1.5 right-12 xs:right-15 lg:right-14 z-0 h-6 w-6  text-richblack-900 rotate-45 
+                       bg-white transition-all duration-50
+                       ${show ? "visible opacity-100" : "invisible opacity-0"} 
+                        group-hover:visible group-hover:opacity-100`}>
                     </div>
 
-                      <div className="flex p-2 flex-col gap-1">
+                      <div className="flex py-1  xs:p-2 text-[0.9rem] xs:text-[1.02rem] flex-col gap-1">
                         {
                             category?.map((cat,index) => (
                               <Link key={index} to={`catalog/${cat.name}`}>
@@ -77,7 +82,9 @@ const Navbar = () => {
               ) : (
                 <Link to={`${link?.path}`}>
                   <p
-                    className={`${matchname(link?.path) ? "text-yellow-25" : "text-richblack-200 "}`}
+                    className={`lg:text-[1rem] xs:text-[0.8rem] text-[0.7rem] ${link.title=="About" && "hidden xs:block" } 
+                    ${link.title=="Contact" && "hidden xd:block" } md:text-[0.9rem] ${matchname(link?.path) ? "text-yellow-25" : 
+                    "text-richblack-200 "}`}
                   >
                     {link.title}
                   </p>
@@ -85,30 +92,22 @@ const Navbar = () => {
               )}
             </li>
           ))}
-        </div>
+        </ul>
 
         {/* left */}
-        <div className="flex gap-3 ">
-          {user && user?.accountType != "Instructor" && (
-            <Link
-              to={"/dashboard/cart"}
-              className="relative text-richblack-200 flex items-center justify-center"
-            >
-              <IoCartOutline className="w-7 h-6" />
-              {totalItems > 0 && <span>{totalItems}</span>}
-            </Link>
-          )}
+        <div className="flex gap-1.5 xd:gap-2 md:gap-3 ">
+          
 
           {!token && (
             <>
               <Link
-                className="text-white text-[0.9rem] font-bold py-2 px-4 text-center border border-richblack-700 rounded-full"
+                className="text-white lg:text-[0.9rem] md:text-[0.8rem] xs:text-[0.7rem] text-[0.6rem] font-bold py-[0.35rem]  px-1 xd:py-[0.4rem] xd:px-2  md:py-2 h-fit md:px-3 lg:py-[0.68rem] lg:px-4 flex items-center text-center border border-richblack-700 rounded-full"
                 to={"/signUp"}
               >
                 SignUp
               </Link>
               <Link
-                className="text-white text-[0.9rem] font-bold py-2 px-4 text-center border border-richblack-700 rounded-full"
+                className="text-white lg:text-[0.9rem] md:text-[0.8rem] xs:text-[0.7rem] text-[0.6rem] font-bold py-[0.35rem]  px-1 xd:py-[0.4rem] xd:px-2  md:py-2 h-fit md:px-3 lg:py-[0.68rem] lg:px-4 flex items-center text-center border border-richblack-700 rounded-full"
                 to={"/logIn"}
               >
                 LogIn

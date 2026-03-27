@@ -85,12 +85,12 @@ export default function PublishCourse() {
         </div>
 
         {/* Next Prev Button */}
-        <div className="ml-auto flex max-w-max items-center gap-x-4">
+        <div className=" gap-2  flex flex-col md:flex-row max-w-max gap-x-4">
           <button
             disabled={loading}
             type="button"
             onClick={goBack}
-            className="flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-2 px-5 font-semibold text-richblack-900"
+            className="flex cursor-pointer items-center gap-x-2  text-center rounded-md bg-richblack-300 py-2 px-5 font-semibold text-richblack-900"
           >
             Back
           </button>

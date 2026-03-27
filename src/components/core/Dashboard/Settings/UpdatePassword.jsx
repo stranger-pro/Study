@@ -53,7 +53,7 @@ export default function UpdatePassword() {
                 type={showOldPassword ? "text" : "password"}
                 name="oldPassword"
                 id="oldPassword"
-                placeholder="Enter Current Password"
+                placeholder="Current Pass.."
                 className="bg-richblack-600 p-2 rounded-sm "
                 {...register("oldPassword", { required: true })}
               />
@@ -81,7 +81,7 @@ export default function UpdatePassword() {
                 type={showNewPassword ? "text" : "password"}
                 name="newPassword"
                 id="newPassword"
-                placeholder="Enter New Password"
+                placeholder="New Pass..."
                 className="bg-richblack-600 p-2 rounded-sm "
                 {...register("newPassword", { required: true })}
               />

@@ -14,7 +14,7 @@ const Dashboard = () => {
                   <Sidebar/>
                 </div>
                 <div className="max-h-[calc(100vh-3.5rem)] w-full overflow-y-auto">
-                    <div className="mx-auto w-[70%] py-6 no-scrollbar overflow-y-scroll">
+                    <div className="mx-auto w-[90%] xd:w-[70%] py-6 no-scrollbar overflow-y-scroll">
                         <Outlet/>
                     </div>
                 </div>

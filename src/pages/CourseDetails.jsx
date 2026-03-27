@@ -169,13 +169,11 @@ function CourseDetails() {
               </div>
             </div>
             <div className="flex w-full flex-col gap-4 border-y border-y-richblack-500 py-4 lg:hidden">
-              <p className="space-x-3 pb-4 text-3xl font-semibold text-richblack-5">
-                Rs. {price}
-              </p>
-              <button className="yellowButton" onClick={handleBuyCourse}>
-                Buy Now
-              </button>
-              <button className="blackButton">Add to Cart</button>
+              <CourseDetailsCard
+              course={response?.data?.courseDetails}
+              setConfirmationModal={setConfirmationModal}
+              handleBuyCourse={handleBuyCourse}
+            />
             </div>
           </div>
           {/* Courses Card */}

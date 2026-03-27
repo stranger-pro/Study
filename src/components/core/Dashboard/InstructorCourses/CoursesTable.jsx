@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
-import { Table, Tbody, Td, Th, Thead, Tr } from "react-super-responsive-table"
+import { Table, Tbody, Td,  Tr } from "react-super-responsive-table"
 
 import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
-import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 import { useState } from "react"
 import { FaCheck } from "react-icons/fa"
 import { FiEdit2 } from "react-icons/fi"
@@ -42,22 +41,7 @@ export default function CoursesTable({ courses, setCourses }) {
   return (
     <>
       <Table className="rounded-xl border border-richblack-800 ">
-        <Thead>
-          <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2">
-            <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
-              Courses
-            </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
-              Duration
-            </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
-              Price
-            </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
-              Actions
-            </Th>
-          </Tr>
-        </Thead>
+        
         <Tbody>
           {courses?.length === 0 ? (
             <Tr>
@@ -70,19 +54,19 @@ export default function CoursesTable({ courses, setCourses }) {
             courses?.map((course) => (
               <Tr
                 key={course._id}
-                className="flex gap-x-10 border-b border-richblack-800 px-6 py-8"
+                className="flex flex-col gap-4 md:gap-x-5 md:flex-row  border-b border-richblack-800 py-4 px-1 lg:px-6 lg:py-8"
               >
-                <Td className="flex flex-1 gap-x-4">
+                <Td className="flex flex-col gap-2 md:gap-x-4 md:flex-row flex-1 ">
                   <img
                     src={course?.thumbnail}
                     alt={course?.courseName}
-                    className="h-37 w-55 rounded-lg object-cover"
+                    className=" md:h-20 lg:h-37 md:w-30 lg:w-45 rounded-lg object-cover"
                   />
-                  <div className="flex flex-col justify-between">
-                    <p className="text-lg font-semibold text-richblack-5">
+                  <div className="flex gap-2 md:gap-0 flex-col justify-between">
+                    <p className="md:text-[1rem] lg:text-lg font-semibold text-richblack-5">
                       {course.courseName}
                     </p>
-                    <p className="text-xs text-richblack-300">
+                    <p className="text-xs text-richblack-300 hidden lg:block">
                       {course.courseDescription.split(" ").length >
                       TRUNCATE_LENGTH
                         ? course.courseDescription
@@ -109,8 +93,8 @@ export default function CoursesTable({ courses, setCourses }) {
                     )}
                   </div>
                 </Td>
-                <Td className="text-sm font-medium text-richblack-100">
-                  1h20min
+                <Td className="hidden xm:block text-sm font-medium text-richblack-100">
+                  1h2min
                 </Td>
                 <Td className="text-sm font-medium text-richblack-100">
                   ₹{course.price}

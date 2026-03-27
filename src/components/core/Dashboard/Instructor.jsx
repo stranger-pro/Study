@@ -50,10 +50,12 @@ export default function Instructor() {
         <div className="spinner"></div>
       ) : courses.length > 0 ? (
         <div>
-          <div className="my-4 flex h-112.5 space-x-4">
+          <div className="my-4 flex flex-col md:flex-row h-auto  md:h-112.5 w-full space-x-4">
             {/* Render chart / graph */}
             {totalAmount > 0 || totalStudents > 0 ? (
-              <InstructorChart courses={instructorData} />
+              <div className="flex bg-richblack-800 rounded-md items-center justify-center md:w-[60%] lg:w-[75%]">
+                <div className="lg:w-[45%] my-2 w-full md:w-[80%]"><InstructorChart courses={instructorData} /></div>
+              </div>
             ) : (
               <div className="flex-1 rounded-md bg-richblack-800 p-6">
                 <p className="text-lg font-bold text-richblack-5">Visualize</p>
@@ -63,7 +65,7 @@ export default function Instructor() {
               </div>
             )}
             {/* Total Statistics */}
-            <div className="flex min-w-62.5 flex-col rounded-md bg-richblack-800 p-6">
+            <div className="flex w-full my-2 md:w-[40%] lg:w-[25%] flex-col rounded-md bg-richblack-800 p-6">
               <p className="text-lg font-bold text-richblack-5">Statistics</p>
               <div className="mt-4 space-y-4">
                 <div>
@@ -89,15 +91,15 @@ export default function Instructor() {
           </div>
           <div className="rounded-md bg-richblack-800 p-6">
             {/* Render 3 courses */}
-            <div className="flex items-center justify-between">
+            <div className="flex my-2 items-center justify-between">
               <p className="text-lg font-bold text-richblack-5">Your Courses</p>
               <Link to="/dashboard/my-courses">
                 <p className="text-xs font-semibold text-yellow-50">View All</p>
               </Link>
             </div>
-            <div className="my-4 flex items-start space-x-6">
+            <div className="my-4 flex flex-wrap space-x-6">
               {courses.slice(0, 3).map((course) => (
-                <div key={course._id} className="w-1/3">
+                <div key={course._id} className=" w-full lg:w-63 py-2">
                   <img
                     src={course.thumbnail}
                     alt={course.courseName}

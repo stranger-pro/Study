@@ -17,6 +17,8 @@
 
 @theme {
   --breakpoint-xs:500px;
+  --breakpoint-xm:820px;
+  --breakpoint-xd:630px;
 
   --font-inter: "Inter", sans-serif;
   --font-edu-sa: "Edu SA Beginner", cursive;
