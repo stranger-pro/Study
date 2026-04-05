@@ -39,8 +39,10 @@ const Navbar = () => {
     <div className=" w-full h-14 flex justify-center items-center border-2 bg-richblack-900 border-b-richblack-700">
       <div className="w-[90%] xs:w-[80%] flex items-center justify-between">
         {/* right */}
-        <Link to={"/"}>
-          <img className="h-4.5 xs:pr-3 xd:pr-0 pr-6 xs:h-5.5 md:h-6 lg:h-8 " src={img} loading="lazy" />
+        <Link to={"/"} className="flex">
+          {/* <img className="h-4.5 xs:pr-3 xd:pr-0 pr-6 xs:h-5.5 md:h-6 lg:h-8 " src={img} loading="lazy" /> */}
+          <span className="h-4.5  text-yellow-5 font-bold text-xl flex items-center justify-center xd:text-2xl xs:h-5.5 md:h-6 lg:h-8 ">S</span>
+          <span className="h-4.5 xs:pr-3 text-white font-bold text-xl flex items-center justify-center xd:text-2xl xd:pr-0 pr-6 xs:h-5.5 md:h-6 lg:h-8 ">tudy</span>
         </Link>
 
         {/* Middle */}
@@ -49,11 +51,11 @@ const Navbar = () => {
             <li className="" key={index}>
               {link.title === "Catalog" ? (
                 <>
-                  <div onClick={() => setShow(!show)} className=" relative group cursor-pointer text-richblack-200 flex items-center justify-center gap-1 group ">
-                    <p className="lg:text-[1rem] xs:text-[0.8rem]  text-[0.7rem] md:text-[0.9rem]">{link.title}</p> <FaChevronDown className="w-2 xs:w-[0.7rem]" />
+                  <div  className=" relative group cursor-pointer text-richblack-200 flex items-center justify-center gap-1 group ">
+                    <p onClick={() => setShow(!show)} className="lg:text-[1rem] xs:text-[0.8rem]  text-[0.7rem] md:text-[0.9rem]">{link.title}</p> <FaChevronDown className="w-2 xs:w-[0.7rem]" />
                     
                     
-                    <div className={`absolute z-10 top-8  text-richblack-900 w-40 xs:w-50 
+                    <div onClick={() => setShow(false)} className={`absolute z-100 top-8  text-richblack-900 w-40 xs:w-50 
                      bg-white rounded-md    transition-all duration-50 
                      p-4 group-hover:visible group-hover:opacity-100
                      ${show ? "visible opacity-100" : "invisible opacity-0"}
