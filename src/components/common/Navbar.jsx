@@ -42,7 +42,7 @@ const Navbar = () => {
         <Link to={"/"} className="flex">
           {/* <img className="h-4.5 xs:pr-3 xd:pr-0 pr-6 xs:h-5.5 md:h-6 lg:h-8 " src={img} loading="lazy" /> */}
           <span className="h-4.5  text-yellow-5 font-bold text-xl flex items-center justify-center xd:text-2xl xs:h-5.5 md:h-6 lg:h-8 ">S</span>
-          <span className="h-4.5 xs:pr-3 text-white font-bold text-xl flex items-center justify-center xd:text-2xl xd:pr-0 pr-6 xs:h-5.5 md:h-6 lg:h-8 ">tudy</span>
+          <span className="h-4.5 xs:pr-3 text-white font-bold text-xl flex items-center justify-center xd:text-2xl xd:pr-0 pr-6 xs:h-5.5 md:h-6 lg:h-8 ">killzen</span>
         </Link>
 
         {/* Middle */}
