@@ -76,8 +76,7 @@ StudyNotion/
 ---
 
 ## 🌐 Live Demo
-
-https://your-deployed-link.com
+study-flax-kappa.vercel.app
 
 ---
 
